@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang=es>
+
+<head>
+  <meta charset=UTF-8>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <link rel=stylesheet href=./src/css/style.css>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script src=./src/js/index.js defer></script>
+  <title>Final WiseSplit Fantasy</title>
+</head>
+
+<body>
+  <main>
+
+    <div id="home" class="page active">
+      <div class="header">
+        <img class="banner" src="./src/images/banner.png" alt="banner">
+      </div>
+      <div class="container">
+        <h2>Home</h2>
+        <div class="size"></div>
+        <div class="form-actions">
+          <button type="button" onclick="displayPage('users')">Users</button>
+          <button id="addExpenseButton">+</button>
+          <button type="button" onclick="displayPage('balances')">Balances</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="addExpense" class="page">
+      <div class="header">
+        <img class="banner" src="./src/images/banner.png" alt="banner">
+      </div>
+      <div class="container">
+        <h2>Add Expense</h2>
+        <div class="size">
+          <div class="form-group">
+            <label for="userSelect">User: </label>
+            <select id="userSelect" name="userSelect" autocomplete="username"></select>
+            <label for="amount">Amount: </label>
+            <input type="number" id="amount" name="amount" step="0.01" min="0" autocomplete="off">
+            <label for="title">Title: </label>
+            <input type="text" id="title" name="title" class="small-input" autocomplete="off">
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="back" id="backToHomeButton">Back</button>
+          <button type="submit" id="confirmExpenseButton" disabled>Confirm</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="balances" class="page">
+      <div class="header">
+        <img class="banner" src="./src/images/banner.png" alt="banner">
+      </div>
+      <div class="container">
+        <h2>Balances</h2>
+        <div class="size"></div>
+        <div class="form-actions">
+          <button type="button" onclick="displayPage('home')">Home</button>
+          <button type="button" onclick="settleUp()" class="settle-button">Settle up</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="users" class="page">
+      <div class="header">
+        <img class="banner" src="./src/images/banner.png" alt="banner">
+      </div>
+      <div class="container">
+        <h2>Users</h2>
+        <div class="size">
+          <ul id="usersList" class="users-list"></ul>
+        </div>
+        <div class="form-actions">
+          <button type="button" onclick="displayPage('home')">Home</button>
+          <button type="button" onclick="displayPage('add-user')">Add user</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="add-user" class="page">
+      <div class="header">
+        <img class="banner" src="./src/images/banner.png" alt="banner">
+      </div>
+      <div class="container">
+        <h2>Add user</h2>
+        <form id="myForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="username" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <p>Genre:</p>
+            <div class="genre-options">
+              <input type="radio" id="female" name="genre" value="female" checked>
+              <label for="female">Female<i class='bx bx-female'></i></label>
+              <input type="radio" id="male" name="genre" value="male">
+              <label for="male">Male<i class='bx bx-male'></i></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <p>Icon:</p>
+            <div class="icon-options">
+              <input type="radio" id="aerith" name="icon" value="aerith" checked>
+              <label for="aerith"><img src="./src/images/aerith.png" alt="aerith"></label>
+              <input type="radio" id="rinoa" name="icon" value="rinoa">
+              <label for="rinoa"><img src="./src/images/rinoa.png" alt="rinoa"></label>
+              <input type="radio" id="garnet" name="icon" value="garnet">
+              <label for="garnet"><img src="./src/images/garnet.png" alt="garnet"></label>
+              <input type="radio" id="cloud" name="icon" value="cloud">
+              <label for="cloud"><img src="./src/images/cloud.png" alt="cloud"></label>
+              <input type="radio" id="squall" name="icon" value="squall">
+              <label for="squall"><img src="./src/images/squall.png" alt="squall"></label>
+              <input type="radio" id="yitan" name="icon" value="yitan">
+              <label for="yitan"><img src="./src/images/yitan.png" alt="yitan"></label>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button id="back" onclick="displayPage('users')">Back</button>
+            <button type="submit">Confirm</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </main>
+</body>
+
+</html>
